@@ -1,0 +1,16 @@
+#disable directory browsing
+Options -Indexes
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#PROTECT ENV FILE
+<Files .env>
+order allow,deny
+Deny from all
+</Files>
+
+#PROTECT ENV FILE
+<Files .htaccess>
+order allow,deny
+Deny from all
+</Files>
